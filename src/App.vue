@@ -1,12 +1,8 @@
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 
-export default {
-  components: {
-    HelloWorld
-  }
-};
+
 </script>
+
 <template>
   <nav>
     <ul>
@@ -25,12 +21,17 @@ export default {
       </li>
     </ul>
   </nav>
-
-  <HelloWorld msg="Hello World!" />
   
   <main>
     <RouterView />
   </main>
-  
 
 </template>
+
+
+<style>
+ul {
+  list-style-type: none;
+  display: inline-flex;
+  }
+</style>
