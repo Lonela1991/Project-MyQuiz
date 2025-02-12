@@ -1,37 +1,29 @@
-<script>
+<script setup>
 import axios from 'axios'
+import { ref } from 'vue'
 
-export default {
-  data() {
-    return {
-      questions: null
-    };
-  },
-  async created() {
-    try {
-      const response = await axios.get('https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&type=multiple');
-      console.log(response);
+let questions = ref([])
+ 
+ axios.get('https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&type=multiple')
+  .then(function(response){
+    console.log(response.data.results)
 
-      this.questions = response.data.results.map((result) => ({
+   questions.value = response.data.results.map((result) => ({
           question: result.question,
           correctAnswer: result.correct_answer,
           incorrectAnswers: result.incorrect_answers
       }));
-      console.log(this.questions);
-    } 
-    catch (error) {
-      console.error(error);
-    }
-  }
-};
+
+      return questions
+
+  })
 </script>
 
 <template>
-  <ol>
-    <li v-for="question in questions" :key="question">
-      "Question: "{{question.question}} <br>
-      "Correct answer: "{{question.correctAnswer}} <br>
-      "Incorrect answer: "{{question.incorrectAnswers}} <br>
-    </li>
-  </ol>
+    <h2>Easy Questions</h2>
+    <template v-for="question in questions" :key="question">
+     <dt>"Question: "{{question.question}}</dt>
+     <dt>"Correct answer: "{{question.correctAnswer}}</dt> 
+     <dt>"Incorrect answer: "{{question.incorrectAnswers}}</dt>
+    </template>
 </template>
