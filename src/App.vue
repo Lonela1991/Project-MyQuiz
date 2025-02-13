@@ -21,7 +21,7 @@
       </li>
     </ul>
   </nav>
-  
+
   <main>
     <RouterView />
   </main>
