@@ -10,23 +10,39 @@ axios.get('https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&typ
 
    questions.value = response.data.results.map((result) => ({
           question: result.question,
-          correctAnswer: result.correct_answer,
-          incorrectAnswers: result.incorrect_answers
+          x: result.correct_answer,
+          answerOptions: [
+            result.correct_answer,
+            result.incorrect_answers[0],
+            result.incorrect_answers[1],
+            result.incorrect_answers[2],
+        ]
       }));
       return questions
   })
 
 
+function myAnswer(answer, question){
+    if(answer === question.x){
+    console.log("Rätt svar!")
+
+    }
+    else{
+        console.log("FEEEEEEL!")
+    }
+}
+
 </script>
 
 <template>
-    <template v-for="question in questions" :key="question">
+    <template v-for="question in questions">
      <section id="questionSection">
         <h2 id="questionText" >{{question.question}}</h2>
      </section>
      <section id="answerSection">
-        <div id="answerBox">
-        <p id="answerOption">{{question.correctAnswer}}</p>
+        <div id="answerBox" @click="myAnswer(answer, question)" v-for=" answer in question.answerOptions" :key="answer">
+        <p id="answerOption" >
+            {{answer}}</p>
         </div>
      </section>
     </template>
@@ -76,13 +92,14 @@ p {
 
 #answerSection {
   display: flex;
-  background-color: grey;
+  background-color: rgba(255, 4, 159, 0.553);
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: space-around;
+  border-radius: 5%;
   height: 230px;
-  width: 100%;
+  width: 98%;
 }
 
 #answerBox {
@@ -90,12 +107,13 @@ p {
   border: 1px black;
   height: 45%;
   width: 45%;
+  border-radius: 5%;
   line-height: 100px;
   text-align: center;
 }
 
 #answerBox:active {
-  background-color: darkgrey;
+  background-color: rgb(169, 169, 169);
 }
 
 #answerOption {
