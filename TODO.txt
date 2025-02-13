@@ -1,0 +1,13 @@
+[x] Hämta data ifrån ett API med Axios
+[ ] Manipulera data så att rätt data visas
+[ ] Dela upp data angående fråga från svarsalternativen
+[ ] Gör att rätt svar och fel svar visas random, för att undvika att rätt
+alternativ alltid hamnar på samma plats
+[ ] Skapa ruta för frågan
+[ ] Generera en ruta med knappfunktion för varje svarsalternativ
+[ ] Skapa funktion som gör att svarsalternativ rutan blir grön vid rätt svar och röd vid fel svar
+[ ] Skapa variabel som sparar summan av alla rätt svar.
+[ ] Visa rätta svar jämfört med antalet frågor när quizet avslutas
+[ ] Skapa ett inputfält där spelarnamn kan skrivas in
+[ ] Skapa knapp som sparar spelarens namn tillsammans med resultat till webstorage
+[ ] Skapa en resultatlista som hämtar data ifrån webstorage
