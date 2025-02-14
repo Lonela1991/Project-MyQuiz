@@ -1,16 +1,16 @@
 <script>
-import QuestionListEasy from "../components/QuestionListEasy.vue";
+import QuestionList from "../components/QuestionList.vue";
 
 
 export default {
   components: {
-    QuestionListEasy,
+    QuestionList,
   }
 };
 </script>
 
 <template>
-  <h1>Quiz</h1>
-  <QuestionListEasy/>
+  
+  <QuestionList/>
 
 </template>
