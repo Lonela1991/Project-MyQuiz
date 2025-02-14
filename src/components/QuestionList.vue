@@ -1,8 +1,9 @@
 <script setup>
 import axios from 'axios'
-import { ref, computed } from 'vue'
+import { ref, computed, withDirectives } from 'vue'
 
 const questions = ref(null)
+const selectedAnswer = ref(null)
 
 function decodeHTML(html) {
   var txt = document.createElement("textarea");
@@ -47,19 +48,33 @@ const currentQuestionIndex = ref(0)
 const currentQuestion = computed(() => questions.value[currentQuestionIndex.value])
 
 function myAnswer(answer) {
-
+  selectedAnswer.value = answer
+ 
   if (answer === currentQuestion.value.correctAnswer) {
     console.log(`Du svarade rätt! Det rätta svaret på frågan är ${currentQuestion.value.correctAnswer}`)
   }
   else {
     console.log(`Du svarade ${answer} och det rätta svaret på frågan är ${currentQuestion.value.correctAnswer}`)
-  }
 
+  }
+  setTimeout(() => {
+  selectedAnswer.value = null
   if (currentQuestionIndex.value < questions.value.length - 1) {
     currentQuestionIndex.value++
   }
-
+  }, 1000)
 }
+
+function getAnswerColor(answer) {
+  if (!selectedAnswer.value) return 'white'
+  return answer === currentQuestion.value.correctAnswer
+  ? 'green' 
+  : answer === selectedAnswer.value 
+  ? 'red' 
+  : 'white'
+  
+}
+
 </script>
 
 <template>
@@ -69,48 +84,25 @@ function myAnswer(answer) {
     </section>
     <section class="answer-section">
       <div class="answer-box" @click="myAnswer(answer)"
-        v-for="(answer, idx) in currentQuestion.answerOptions" :key="idx">
+        v-for="(answer, idx) in currentQuestion.answerOptions" :key="idx" :style="{backgroundColor: getAnswerColor(answer)}">
         <p class="answer-option">{{ answer }}</p>
       </div>
     </section>
   </template>
 </template>
 
-<style>
-body {
-  width: 100%;
-  background-color: #333;
-  color: #fff;
-  margin: 0px;
-}
-
-main {
-  width: 360px;
-}
-
-h1 {
-  font-family: sans-serif;
-}
-
-h2 {
-  font-family: sans-serif;
-  font-size: 14px;
-}
-
-p {
-  font-family: sans-serif;
-}
-
+<style scoped>
 .question-section {
   background-color: white;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 100%;
-  min-height: 100px;
+  margin-inline: auto;
+  border-radius: 1%;
+  width: 96%;
+  min-height: 120px;
   line-height: 50px;
   text-align: center;
   color: black;
-  
 }
 
 .question-text {
@@ -121,13 +113,13 @@ p {
 
 .answer-section {
   display: flex;
-  background-color: rgba(255, 4, 159, 0.553);
+  background-color: #a4196f;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: space-around;
-  border-radius: 4%;
-  height: 250px;
+  border-radius: 1%;
+  height: 600px;
   margin: 2%;
   width: 96%;
 }
@@ -135,16 +127,15 @@ p {
 .answer-box {
   background-color: white;
   border: 1px black;
-  height: 45%;
-  width: 46%;
-  border-radius: 5%;
+  height: 20%;
+  width: 90%;
+  border-radius: 1%;
   line-height: 100px;
   text-align: center;
 }
 
 .answer-option {
   color: black;
-  line-height: 1.5;
   display: inline-block;
   vertical-align: middle;
 }

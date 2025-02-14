@@ -5,7 +5,7 @@
 alternativ alltid hamnar på samma plats
 [x] Gör att varje fråga visas en efter en
 [x] Generera en ruta med knappfunktion för varje svarsalternativ
-[ ] Skapa funktion som gör att svarsalternativ rutan blir grön vid rätt svar och röd vid fel svar
+[x] Skapa funktion som gör att svarsalternativ rutan blir grön vid rätt svar och röd vid fel svar
 [ ] Skapa variabel som sparar summan av alla rätt svar.
 [ ] Visa rätta svar jämfört med antalet frågor när quizet avslutas
 [ ] Skapa ett inputfält där spelarnamn kan skrivas in
