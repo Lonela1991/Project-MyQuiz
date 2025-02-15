@@ -4,6 +4,8 @@ import { ref, computed} from 'vue'
 
 const questions = ref(null)
 const selectedAnswer = ref(null)
+const correctAnswers = ref(0)
+
 
 function decodeHTML(html) {
   var txt = document.createElement("textarea");
@@ -47,21 +49,28 @@ axios.get('https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&typ
 const currentQuestionIndex = ref(0)
 const currentQuestion = computed(() => questions.value[currentQuestionIndex.value])
 
-function myAnswer(answer) {
+function onClick(answer) {
   selectedAnswer.value = answer
  
   if (answer === currentQuestion.value.correctAnswer) {
     console.log(`Du svarade rätt! Det rätta svaret på frågan är ${currentQuestion.value.correctAnswer}`)
+    correctAnswers.value++
+    console.log(`Du har svarat rätt på ${correctAnswers.value} av ${questions.value.length} frågor`)
   }
   else {
     console.log(`Du svarade ${answer} och det rätta svaret på frågan är ${currentQuestion.value.correctAnswer}`)
 
   }
+  setTimeOutOnNextQuestion()
+}
+
+
+function setTimeOutOnNextQuestion() {
   setTimeout(() => {
-  selectedAnswer.value = null
-  if (currentQuestionIndex.value < questions.value.length - 1) {
-    currentQuestionIndex.value++
-  }
+    if (currentQuestionIndex.value < questions.value.length - 1) {
+      currentQuestionIndex.value++
+      selectedAnswer.value = null
+    }
   }, 1000)
 }
 
@@ -72,8 +81,9 @@ function getAnswerColor(answer) {
   : answer === selectedAnswer.value 
   ? 'red' 
   : 'white'
-  
 }
+
+
 
 </script>
 
@@ -83,11 +93,12 @@ function getAnswerColor(answer) {
       <h2 class="questionText"> {{ currentQuestion.question }}</h2>
     </section>
     <section class="answer-section">
-      <div class="answer-box" @click="myAnswer(answer)"
-        v-for="(answer, idx) in currentQuestion.answerOptions" :key="idx" :style="{backgroundColor: getAnswerColor(answer)}">
+      <div class="answer-box" @click="onClick(answer)" 
+        v-for="(answer, index) in currentQuestion.answerOptions" :key="index" :style="{backgroundColor: getAnswerColor(answer)}">
         <p class="answer-option">{{ answer }}</p>
       </div>
     </section>
+    <p> Antal rätt: {{ correctAnswers }} av {{ questions.length }} </p>
   </template>
 </template>
 
