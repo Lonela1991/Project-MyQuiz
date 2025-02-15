@@ -1,12 +1,7 @@
-<script>
-
+<script setup>
 import LogoAndName from "../components/LogoAndName.vue";
 
-export default {
-    components: {
-        LogoAndName
-    }
-};
+
 
 </script>
 
