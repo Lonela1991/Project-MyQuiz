@@ -1,14 +1,17 @@
-<script setup>
-import LogoAndName from "../components/LogoAndName.vue";
 
-
-
-</script>
 
 <template>
-
-    <h1>Home</h1>
-
-    <LogoAndName msg="Quiz: Cartoon and animation" />
-
+ <section class="logo-section">
+    <h1>QuizMeUp</h1>
+    <img alt="Picture of an white questionmark on a pink background" src="/assets/questionmark.jpeg" />
+    <p>"Quiz: Cartoon and animation"</p>
+    <RouterLink to="/quiz"><button>Starta Quiz</button></RouterLink>
+</section>
 </template>
+
+<style scoped>
+.logo-section {
+  margin-inline: auto;
+  width: 96%;
+}
+</style>

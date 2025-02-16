@@ -52,7 +52,7 @@ axios.get('https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&typ
 
 const currentQuestion = computed(() => questions.value[currentQuestionIndex.value])
 
-function handleNextQuestion(){
+function handleNextQuestion() {
   if (currentQuestionIndex.value < questions.value.length - 1) {
     currentQuestionIndex.value++
     selectedAnswer.value = null
@@ -64,17 +64,12 @@ function handleNextQuestion(){
   <template v-if="questions && questions.length > 0">
     <Question :question="currentQuestion.question" />
 
-    <AnswerOptions 
-    :answers="currentQuestion.answerOptions" 
-    :selectedAnswer="selectedAnswer"
-    :correctAnswer="currentQuestion.correctAnswer" 
-    @updateSelectedAnswer="choice => selectedAnswer = choice"
-    @updateCorrectAnswers="() => correctAnswers ++"
-    @nextQuestion="handleNextQuestion"
-    />
+    <AnswerOptions :answers="currentQuestion.answerOptions" :selectedAnswer="selectedAnswer"
+      :correctAnswer="currentQuestion.correctAnswer" @updateSelectedAnswer="choice => selectedAnswer = choice"
+      @updateCorrectAnswers="() => correctAnswers++" @nextQuestion="handleNextQuestion" />
 
     <Score :correctAnswers="correctAnswers" :totalQuestions="questions.length" />
-    
+
   </template>
   <template>
     <p>Laddar frågor...</p>

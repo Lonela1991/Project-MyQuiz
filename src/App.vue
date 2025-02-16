@@ -35,6 +35,10 @@ ul {
   display: inline-flex;
 }
 
+li {
+  color:  #a4196f;
+}
+
 body {
   width: 100%;
   background-color: #333;

@@ -17,21 +17,21 @@ const props = defineProps({
 const emit = defineEmits(["answerSelected"])
 
 function onAnswerSelected(answer) {
- emit("updateSelectedAnswer", answer)
+    emit("updateSelectedAnswer", answer)
 
-  if (answer === props.correctAnswer) {
-    console.log(`Du svarade rätt! Det rätta svaret på frågan är ${props.correctAnswer}`)
-    emit("updateCorrectAnswers")
-  }
-  else {
-    console.log(`Du svarade ${answer} och det rätta svaret på frågan är ${props.correctAnswer}`)
+    if (answer === props.correctAnswer) {
+        console.log(`Du svarade rätt! Det rätta svaret på frågan är ${props.correctAnswer}`)
+        emit("updateCorrectAnswers")
+    }
+    else {
+        console.log(`Du svarade ${answer} och det rätta svaret på frågan är ${props.correctAnswer}`)
 
-  }
- 
-  setTimeout(() => { 
-    emit("nextQuestion")
-    emit("updateSelectedAnswer", null)
-   }, 1000)
+    }
+
+    setTimeout(() => {
+        emit("nextQuestion")
+        emit("updateSelectedAnswer", null)
+    }, 1000)
 
 }
 
@@ -52,7 +52,7 @@ function getAnswerColor(answer) {
     </section>
 </template>
 
-<style>
+<style scoped>
 .answer-section {
     display: flex;
     background-color: #a4196f;
