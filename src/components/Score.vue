@@ -1,0 +1,36 @@
+<script setup>
+const props = defineProps({
+   correctAnswers: {
+    type: Number,
+    required: true
+   },
+   totalQuestions: {
+    type: Number,
+    required: true
+   }
+})
+
+
+</script>
+<template>
+   <section class="correct-answers-section">
+      <p class="correct-answers"> Antal rätt: {{ correctAnswers }} av {{ totalQuestions }} </p>
+    </section>
+</template>
+
+<style >
+.correct-answers-section {
+  background-color: white;
+  margin-inline: auto;
+  border-radius: 1%;
+  width: 96%;
+  min-height: 50px;
+  line-height: 50px;
+  text-align: right;
+  color: black;
+}
+
+.correct-answers {
+  padding-right: 5%;
+}
+</style>
