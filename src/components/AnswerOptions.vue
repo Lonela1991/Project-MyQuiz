@@ -1,4 +1,7 @@
 <script setup>
+
+const emit = defineEmits(["updateSelectedAnswer", "nextQuestion","updateSelectedAnswer" ])
+
 const props = defineProps({
     answers: {
         type: Array,
@@ -13,8 +16,6 @@ const props = defineProps({
         required: true
     }
 })
-
-const emit = defineEmits(["answerSelected"])
 
 function onAnswerSelected(answer) {
     emit("updateSelectedAnswer", answer)

@@ -4,12 +4,16 @@ import { ref, computed } from 'vue'
 import Question from '../components/Question.vue'
 import AnswerOptions from '../components/AnswerOptions.vue'
 import Score from '../components/Score.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 
 const questions = ref(null)
 const selectedAnswer = ref(null)
 const correctAnswers = ref(0)
 const currentQuestionIndex = ref(0)
-
+const quizFinished = ref(false)
 
 function decodeHTML(html) {
   var txt = document.createElement("textarea");
@@ -49,7 +53,6 @@ axios.get('https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&typ
     return questions
   })
 
-
 const currentQuestion = computed(() => questions.value[currentQuestionIndex.value])
 
 function handleNextQuestion() {
@@ -57,7 +60,18 @@ function handleNextQuestion() {
     currentQuestionIndex.value++
     selectedAnswer.value = null
   }
+  else {
+    quizFinished.value = true
+    router.push({
+      name: "PlayerRegistration",
+      query: { 
+        result: correctAnswers.value, 
+        total: questions.value.length
+      }
+    })
+  }
 }
+
 </script>
 
 <template>
@@ -66,10 +80,10 @@ function handleNextQuestion() {
 
     <AnswerOptions :answers="currentQuestion.answerOptions" :selectedAnswer="selectedAnswer"
       :correctAnswer="currentQuestion.correctAnswer" @updateSelectedAnswer="choice => selectedAnswer = choice"
-      @updateCorrectAnswers="() => correctAnswers++" @nextQuestion="handleNextQuestion" />
+      @updateCorrectAnswers="() => correctAnswers++" @nextQuestion="handleNextQuestion"
+      @answerSelected="onAnswerSelected" />
 
-    <Score :correctAnswers="correctAnswers" :totalQuestions="questions.length" />
-
+    <Score :correctAnswers="correctAnswers" :numberOfQuestions="currentQuestionIndex" />
   </section>
   <template v-else>
     <p>Laddar frågor...</p>

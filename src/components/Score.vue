@@ -1,10 +1,11 @@
 <script setup>
+
 const props = defineProps({
    correctAnswers: {
     type: Number,
     required: true
    },
-   totalQuestions: {
+   numberOfQuestions: {
     type: Number,
     required: true
    }
@@ -14,7 +15,7 @@ const props = defineProps({
 </script>
 <template>
    <section class="correct-answers-section">
-      <p class="correct-answers"> Antal rätt: {{ correctAnswers }} av {{ totalQuestions }} </p>
+      <p class="correct-answers"> Antal rätt: {{ correctAnswers }} av {{numberOfQuestions}}</p>
     </section>
 </template>
 

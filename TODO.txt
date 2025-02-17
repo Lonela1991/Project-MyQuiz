@@ -7,7 +7,7 @@ alternativ alltid hamnar på samma plats
 [x] Generera en ruta med knappfunktion för varje svarsalternativ
 [x] Skapa funktion som gör att svarsalternativ rutan blir grön vid rätt svar och röd vid fel svar
 [x] Skapa variabel som sparar summan av alla rätt svar.
-[ ] Visa rätta svar jämfört med antalet frågor när quizet avslutas
-[ ] Skapa ett inputfält där spelarnamn kan skrivas in
-[ ] Skapa knapp som sparar spelarens namn tillsammans med resultat till webstorage
+[x] Visa rätta svar jämfört med antalet frågor när quizet avslutas
+[x] Skapa ett inputfält där spelarnamn kan skrivas in
+[x] Skapa knapp som sparar spelarens namn tillsammans med resultat till webstorage
 [ ] Skapa en resultatlista som hämtar data ifrån webstorage
