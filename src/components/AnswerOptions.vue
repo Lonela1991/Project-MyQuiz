@@ -55,13 +55,13 @@ function getAnswerColor(answer) {
 <style scoped>
 .answer-section {
     display: flex;
-    background-color: #a4196f;
-    flex-direction: row;
+    background-color: #ffffff30;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: space-around;
-    border-radius: 1%;
-    height: 600px;
+    border-radius: 6px;
+    height: 500px;
     margin-inline: auto;
     width: 96%;
 }
@@ -71,14 +71,14 @@ function getAnswerColor(answer) {
     border: 1px black;
     height: 20%;
     width: 90%;
-    border-radius: 1%;
-    line-height: 100px;
+    border-radius: 15px;
+    line-height: 75px;
     text-align: center;
+  
 }
 
 .answer-option {
     color: black;
     display: inline-block;
-    vertical-align: middle;
 }
 </style>

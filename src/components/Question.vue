@@ -22,16 +22,16 @@ question: {
   margin-top: 20px;
   margin-bottom: 20px;
   margin-inline: auto;
-  border-radius: 1%;
-  width: 96%;
-  min-height: 120px;
-  line-height: 50px;
+  border-radius: 6px;
+  width: 91%;
+  min-height: 100px;
+  line-height: 30px;
   text-align: center;
   color: black;
+  padding: 10px;
 }
 
 .question-text {
-  line-height: 1;
   display: inline-block;
   vertical-align: middle;
 }

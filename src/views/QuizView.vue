@@ -61,7 +61,7 @@ function handleNextQuestion() {
 </script>
 
 <template>
-  <template v-if="questions && questions.length > 0">
+  <section class="quiz-section" v-if="questions && questions.length > 0">
     <Question :question="currentQuestion.question" />
 
     <AnswerOptions :answers="currentQuestion.answerOptions" :selectedAnswer="selectedAnswer"
@@ -70,8 +70,15 @@ function handleNextQuestion() {
 
     <Score :correctAnswers="correctAnswers" :totalQuestions="questions.length" />
 
-  </template>
-  <template>
+  </section>
+  <template v-else>
     <p>Laddar frågor...</p>
   </template>
 </template>
+
+<style>
+.quiz-section {
+  background-color: #a4196f;
+  padding: 2px;
+}
+</style>

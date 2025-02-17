@@ -41,7 +41,7 @@ li {
 
 body {
   width: 100%;
-  background-color: #333;
+  background-color: #333 ;
   color: #fff;
   margin: 0px;
 }
@@ -56,7 +56,7 @@ h1 {
 
 h2 {
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 p {

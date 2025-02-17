@@ -20,14 +20,13 @@ const props = defineProps({
 
 <style >
 .correct-answers-section {
-  background-color: white;
   margin-inline: auto;
-  border-radius: 1%;
+  border-radius: 6px;
   width: 96%;
   min-height: 50px;
   line-height: 50px;
   text-align: right;
-  color: black;
+  color: white;
 }
 
 .correct-answers {
