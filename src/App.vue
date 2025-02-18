@@ -14,37 +14,25 @@
 
 
 <style>
-ul {
-  list-style-type: none;
-  display: inline-flex;
-}
-
-li {
-  color:  #a4196f;
-}
-
 body {
-  width: 100%;
   background-color: #333 ;
-  color: #fff;
+  color: #000;
   margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  font-family: sans-serif;
 }
 
 main {
-  width: 360px;
+  background-color: #a4196f;
+  max-width: 400px;
+  width: 90%;
+  border-radius: 10px;
+  padding: 2rem 1rem;
+  box-shadow:  0 4px 10px rgba(0, 0, 0, 0.3);
+  
 }
 
-h1 {
-  font-family: sans-serif;
-}
-
-h2 {
-  font-family: sans-serif;
-  font-size: 16px;
-}
-
-p {
-  font-family: sans-serif;
-  font-weight: bold;
-}
 </style>

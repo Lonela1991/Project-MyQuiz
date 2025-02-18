@@ -64,8 +64,8 @@ function handleNextQuestion() {
     quizFinished.value = true
     router.push({
       name: "PlayerRegistration",
-      query: { 
-        result: correctAnswers.value, 
+      query: {
+        result: correctAnswers.value,
         total: questions.value.length
       }
     })
@@ -92,7 +92,6 @@ function handleNextQuestion() {
 
 <style>
 .quiz-section {
-  background-color: #a4196f;
-  padding: 2px;
+  text-align: center;
 }
 </style>

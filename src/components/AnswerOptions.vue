@@ -45,41 +45,30 @@ function getAnswerColor(answer) {
 
 </script>
 <template>
-    <section class="answer-section">
-        <div class="answer-box" @click="onAnswerSelected(answer)" v-for="(answer, index) in answers" :key="index"
+    <article class="answer-article">
+    <section class="answer-section" @click="onAnswerSelected(answer)" v-for="(answer, index) in answers" :key="index"
             :style="{ backgroundColor: getAnswerColor(answer) }">
-            <p class="answer-option">{{ answer }}</p>
-        </div>
+            <p>{{ answer }}</p>
     </section>
+</article>
 </template>
 
 <style scoped>
+.answer-article{
+display:flex;
+flex-direction: column;
+gap: 0.5rem;
+border-radius: 10px;
+background-color: #af508a;
+padding: 1rem;
+}
+
 .answer-section {
-    display: flex;
-    background-color: #ffffff30;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-content: space-around;
-    border-radius: 6px;
-    height: 500px;
-    margin-inline: auto;
-    width: 96%;
+margin: 0.5rem;
+padding: 1rem;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+font-weight: bold;
 }
 
-.answer-box {
-    background-color: white;
-    border: 1px black;
-    height: 20%;
-    width: 90%;
-    border-radius: 15px;
-    line-height: 75px;
-    text-align: center;
-  
-}
-
-.answer-option {
-    color: black;
-    display: inline-block;
-}
 </style>

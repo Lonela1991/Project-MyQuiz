@@ -1,5 +1,3 @@
-
-
 <template>
  <section class="logo-section">
     <h1>QuizMeUp</h1>
@@ -11,7 +9,6 @@
 
 <style scoped>
 .logo-section {
-  margin-inline: auto;
-  width: 96%;
+color: #fff;
 }
 </style>

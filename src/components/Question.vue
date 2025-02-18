@@ -12,28 +12,19 @@ question: {
 <template>
 
 <section class="question-section">
-    <h2 class="questionText"> {{ question }}</h2>
+    <h2> {{ question }}</h2>
 </section>
 
 </template>
 
 <style>
 .question-section {
-  background-color: white;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-inline: auto;
-  border-radius: 6px;
-  width: 91%;
-  min-height: 100px;
-  line-height: 30px;
-  text-align: center;
-  color: black;
-  padding: 10px;
+background-color: #fff;
+border-radius: 10px;
+padding: 1.5rem;
+font-size: 1.0rem;
+margin-bottom: 2rem;
+height: 20vh;
 }
 
-.question-text {
-  display: inline-block;
-  vertical-align: middle;
-}
 </style>
