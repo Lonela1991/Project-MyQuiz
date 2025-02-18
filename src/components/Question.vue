@@ -22,9 +22,9 @@ question: {
 background-color: #fff;
 border-radius: 10px;
 padding: 1.5rem;
-font-size: 1.0rem;
+font-size: 0.8rem;
 margin-bottom: 2rem;
-height: 20vh;
+height: 16vh;
 }
 
 </style>

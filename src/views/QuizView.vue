@@ -91,7 +91,5 @@ function handleNextQuestion() {
 </template>
 
 <style>
-.quiz-section {
-  text-align: center;
-}
+
 </style>

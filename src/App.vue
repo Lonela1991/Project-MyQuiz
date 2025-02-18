@@ -15,7 +15,7 @@
 
 <style>
 body {
-  background-color: #333 ;
+  background-color:#333;
   color: #000;
   margin: 0px;
   padding: 0px;
@@ -32,7 +32,7 @@ main {
   border-radius: 10px;
   padding: 2rem 1rem;
   box-shadow:  0 4px 10px rgba(0, 0, 0, 0.3);
-  
+  text-align: center;
 }
 
 </style>

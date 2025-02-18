@@ -20,7 +20,8 @@ players.value=[]
 </script>
 
 <template>
-<h1>Resultatlista</h1>
+<article id="article-resultlist">
+<h1>Resultat</h1>
 <table>
     <thead>
         <tr>
@@ -37,4 +38,21 @@ players.value=[]
         </tr>
     </tbody>
 </table>
+</article>
 </template>
+<style scoped>
+
+#article-resultlist {
+    height: 100vh;
+}
+
+table {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+
+}
+
+h1 {color: white;}
+
+</style>

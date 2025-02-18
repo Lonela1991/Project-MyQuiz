@@ -15,7 +15,7 @@ function addPlayerData() {
     const newPlayer = {
           datum: getTodaysDate(),
           spelare: playerName.value,
-          resultat: result 
+          resultat: result
         }
     addPlayerToLocalStorage(newPlayer)
     playerName.value = ""
@@ -23,7 +23,7 @@ function addPlayerData() {
     router.push({name: "ResultView"})
 }
 
-function addPlayerToLocalStorage(newPlayer) { 
+function addPlayerToLocalStorage(newPlayer) {
     const players = getPlayersFromLocalStorage()
         players.push(newPlayer)
         localStorage.setItem("Resultat", JSON.stringify(players))
@@ -55,15 +55,43 @@ function getPlayersFromLocalStorage(){
 
 </script>
 <template>
-<section class="form">
-<h1> Du fick {{result}} rätt av {{total}}</h1>
+<article class="form">
+<section id="section-show-result">
+    <h1> Du fick {{result}} rätt av {{total}}</h1></section>
+<section id="section-register-result">
 <h2>Vill du spara ditt reslutat?</h2>
 <label for="playerName">Skriv in ditt namn:</label>
 <input type="text" id="playerName" v-model="playerName" placeholder="Namn">
-<button id="btnAddPlayerData" @click="addPlayerData">Registrera</button>
 </section>
+<section id="section-button">
+<button id="btnAddPlayerData" @click="addPlayerData">Registrera</button></section>
+
+
+</article>
 </template>
 
 <style scoped>
+
+#section-show-result{
+    height: 25vh;
+    padding: 1.5rem;
+
+}
+
+#section-register-result{
+    height: 35vh;
+}
+
+#section-button{
+    height: 30vh
+}
+
+label{
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input{text-align: center;}
+
 
 </style>
