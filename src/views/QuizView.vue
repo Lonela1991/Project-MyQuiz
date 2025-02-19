@@ -1,10 +1,11 @@
 <script setup>
 import axios from 'axios';
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import Question from '../components/Question.vue';
 import AnswerOptions from '../components/AnswerOptions.vue';
 import Score from '../components/Score.vue';
+
 
 
 const router = useRouter();
@@ -14,6 +15,7 @@ const selectedAnswer = ref(null);
 const correctAnswers = ref(0);
 const currentQuestionIndex = ref(0);
 const quizFinished = ref(false);
+document.title = "Fråga 1"
 
 function decodeHTML(html) {
   var txt = document.createElement('textarea');
@@ -69,8 +71,18 @@ onMounted(() => {
   fetchQuestion();
 });
 
+watch(currentQuestionIndex, (newIndex) => {
+  if (currentQuestionIndex.value < questions.value.length - 1) {
+    document.title = `Fråga ${newIndex + 1}`
+  }
+else {
+    document.title = ""
+  }
+})
+
+
 const currentQuestion = computed(
-  () =>   questions.value && questions.value.length > 0 ? questions.value[currentQuestionIndex.value] : null
+  () => questions.value && questions.value.length > 0 ? questions.value[currentQuestionIndex.value] : null
 );
 
 function handleNextQuestion() {
@@ -91,30 +103,16 @@ function handleNextQuestion() {
 </script>
 
 <template>
-  <section
-    class="quiz-section"
-    v-if="questions && questions.length > 0"
-  >
+  <section class="quiz-section" v-if="questions && questions.length > 0">
     <Question :question="currentQuestion.question" />
+   
+    <AnswerOptions :answers="currentQuestion.answerOptions" :selectedAnswer="selectedAnswer"
+      :correctAnswer="currentQuestion.correctAnswer" @updateSelectedAnswer="(choice) => (selectedAnswer = choice)"
+      @updateCorrectAnswers="() => correctAnswers++" @nextQuestion="handleNextQuestion" />
 
-    <AnswerOptions
-      :answers="currentQuestion.answerOptions"
-      :selectedAnswer="selectedAnswer"
-      :correctAnswer="currentQuestion.correctAnswer"
-      @updateSelectedAnswer="(choice) => (selectedAnswer = choice)"
-      @updateCorrectAnswers="() => correctAnswers++"
-      @nextQuestion="handleNextQuestion"
-    />
-
-    <Score
-      :correctAnswers="correctAnswers"
-      :numberOfQuestions="currentQuestionIndex"
-    />
+    <Score :correctAnswers="correctAnswers" :numberOfQuestions="currentQuestionIndex" />
   </section>
-  <section
-    id="loading-page"
-    v-else
-  >
+  <section id="loading-page" v-else>
     <p>Laddar frågor ...</p>
   </section>
 </template>
@@ -127,10 +125,10 @@ function handleNextQuestion() {
 }
 
 #loading-page {
-    max-width: 360px;
-    padding: 20rem 6rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    background-color: #a4196f;
+  max-width: 360px;
+  padding: 20rem 6rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: #a4196f;
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
