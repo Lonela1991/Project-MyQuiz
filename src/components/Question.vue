@@ -19,12 +19,17 @@ question: {
 
 <style>
 .question-section {
-background-color: #fff;
+display: flex;
+flex-wrap: column;
+height: 8rem;
+padding: 3rem 1rem;
+margin-bottom: 1.5rem;
+
 border-radius: 10px;
-padding: 1.5rem;
+background-color: #fff;
+line-height: 2rem;
 font-size: 0.8rem;
-margin-bottom: 2rem;
-height: 16vh;
+
 }
 
 </style>

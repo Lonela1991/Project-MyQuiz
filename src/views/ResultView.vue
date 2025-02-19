@@ -16,12 +16,14 @@ players.value=[]
 }
 })
 
-
 </script>
 
 <template>
 <article id="article-resultlist">
-<h1>Resultat</h1>
+<section id="section-resultlist-header">
+    <h1>Resultat</h1>
+</section>
+<section id="section-resultlists">
 <table>
     <thead>
         <tr>
@@ -38,21 +40,41 @@ players.value=[]
         </tr>
     </tbody>
 </table>
+</section>
+<section id="section-start-button">
+    <RouterLink to="/quiz"><button>Spela igen</button></RouterLink>
+</section>
 </article>
 </template>
 <style scoped>
 
 #article-resultlist {
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: #a4196f;
+}
+
+#section-resultlist-header{
+    margin-bottom: 1rem;
+    color: white;
+}
+
+#section-resultlists {
+margin-bottom: 2rem;
+min-height: 30rem;
+overflow: scroll;
+}
+
+#section-start-button {
+padding: 1rem 0;
 }
 
 table {
     background-color: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-
+  
+    padding: 0.5rem 2rem ;
 }
-
-h1 {color: white;}
-
 </style>

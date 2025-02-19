@@ -21,16 +21,16 @@ const props = defineProps({
 
 <style >
 .correct-answers-section {
-  margin-inline: auto;
+  display: flex;
+  flex-direction: row;
+  text-align: end;
+ 
   border-radius: 6px;
-  width: 96%;
-  min-height: 50px;
-  line-height: 50px;
-  text-align: right;
+ 
+  
   color: white;
 }
 
-.correct-answers {
-  padding-right: 5%;
-}
+
+
 </style>

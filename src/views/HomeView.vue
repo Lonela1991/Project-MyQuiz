@@ -1,4 +1,5 @@
 <template>
+  <article id="article-home" >
  <section id="section-logo">
     <h1>QuizMeUp</h1>
     <img alt="Picture of an white questionmark on a pink background" src="/assets/questionmark.jpeg" />
@@ -7,16 +8,22 @@
   <section id="section-start-button">
     <RouterLink to="/quiz"><button>Starta Quiz</button></RouterLink>
 </section>
+</article>
 </template>
 
 <style scoped>
+
+#article-home {
+  display: flex;
+    flex-direction: column;
+    max-width: 360px;
+    padding: 11rem 5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: #fff;
+   background-color: #a4196f;
+}  
+
 #section-logo {
-height: 50vh;
-color: #fff;
-}
-
-#section-start-button{
-  height: 20vh;
-
+  margin: 1rem 0;
 }
 </style>
