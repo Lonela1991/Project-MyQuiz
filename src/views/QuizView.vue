@@ -1,21 +1,18 @@
 <script setup>
 import axios from 'axios';
 import { ref, computed, onMounted, watch } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRouter} from 'vue-router';
 import Question from '../components/Question.vue';
 import AnswerOptions from '../components/AnswerOptions.vue';
 import Score from '../components/Score.vue';
 
 
-
 const router = useRouter();
-
 const questions = ref(null);
 const selectedAnswer = ref(null);
 const correctAnswers = ref(0);
 const currentQuestionIndex = ref(0);
 const quizFinished = ref(false);
-document.title = "Fråga 1"
 
 function decodeHTML(html) {
   var txt = document.createElement('textarea');
@@ -71,14 +68,14 @@ onMounted(() => {
   fetchQuestion();
 });
 
-watch(currentQuestionIndex, (newIndex) => {
-  if (currentQuestionIndex.value < questions.value.length - 1) {
-    document.title = `Fråga ${newIndex + 1}`
-  }
-else {
-    document.title = ""
-  }
+
+
+watch(currentQuestionIndex, (newIndex) =>{
+
+const next = parseInt(newIndex) + 1
+router.push({path: `/quiz/${next}`})
 })
+
 
 
 const currentQuestion = computed(
@@ -105,7 +102,7 @@ function handleNextQuestion() {
 <template>
   <section class="quiz-section" v-if="questions && questions.length > 0">
     <Question :question="currentQuestion.question" />
-   
+
     <AnswerOptions :answers="currentQuestion.answerOptions" :selectedAnswer="selectedAnswer"
       :correctAnswer="currentQuestion.correctAnswer" @updateSelectedAnswer="(choice) => (selectedAnswer = choice)"
       @updateCorrectAnswers="() => correctAnswers++" @nextQuestion="handleNextQuestion" />

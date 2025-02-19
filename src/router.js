@@ -15,7 +15,7 @@ const routes = [
   {
     component: QuizView,
     name: 'Quiz',
-    path: '/quiz'
+    path: '/quiz/:question'
   },
   {
     component: PlayerRegistration,

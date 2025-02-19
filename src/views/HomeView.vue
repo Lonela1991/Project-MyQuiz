@@ -6,7 +6,7 @@
     <p>"Quiz: Cartoon and animation"</p>
   </section>
   <section id="section-start-button">
-    <RouterLink to="/quiz"><button>Starta Quiz</button></RouterLink>
+    <RouterLink to="/quiz/1"><button>Starta Quiz</button></RouterLink>
 </section>
 </article>
 </template>
@@ -21,7 +21,7 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: #fff;
    background-color: #a4196f;
-}  
+}
 
 #section-logo {
   margin: 1rem 0;
