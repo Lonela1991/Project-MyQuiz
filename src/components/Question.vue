@@ -21,11 +21,10 @@ question: {
 <style>
 .question-section {
 display: flex;
-flex-wrap: column;
+
 height: 8rem;
 padding: 3rem 1rem;
 margin-bottom: 1.5rem;
-
 border-radius: 10px;
 background-color: #fff;
 line-height: 2rem;

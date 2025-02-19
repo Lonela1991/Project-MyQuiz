@@ -25,13 +25,7 @@ const props = defineProps({
   display: flex;
   flex-direction: row;
   text-align: end;
- 
   border-radius: 6px;
- 
-  
   color: white;
 }
-
-
-
 </style>

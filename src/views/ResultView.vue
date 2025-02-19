@@ -42,7 +42,7 @@ players.value=[]
 </table>
 </section>
 <section id="section-start-button">
-    <RouterLink to="/quiz"><button>Spela igen</button></RouterLink>
+    <RouterLink to="/quiz/1"><button>Spela igen</button></RouterLink>
 </section>
 </article>
 </template>
@@ -75,7 +75,7 @@ padding: 1rem 0;
 
 table {
     background-color: white;
-  
+
     padding: 0.5rem 2rem ;
 }
 </style>

@@ -95,14 +95,11 @@ function getPlayersFromLocalStorage() {
     padding: 6rem 0;
 }
 
-
-
 label {
     display: block;
     margin-top: 2rem;
     margin-bottom: 0.5rem;
 }
-
 
 input {
     text-align: center;
