@@ -37,6 +37,7 @@ function shuffle(array) {
 
   return array;
 }
+
 async function fetchQuestion() {
   try {
     const response = await axios.get(
@@ -126,7 +127,10 @@ function handleNextQuestion() {
 }
 
 #loading-page {
-  margin-top: 10rem;
+    max-width: 360px;
+    padding: 20rem 6rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: #a4196f;
   font-size: 1.5rem;
   font-weight: bold;
   color: white;

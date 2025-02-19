@@ -10,4 +10,4 @@ alternativ alltid hamnar på samma plats
 [x] Visa rätta svar jämfört med antalet frågor när quizet avslutas
 [x] Skapa ett inputfält där spelarnamn kan skrivas in
 [x] Skapa knapp som sparar spelarens namn tillsammans med resultat till webstorage
-[ ] Skapa en resultatlista som hämtar data ifrån webstorage
+[x] Skapa en resultatlista som hämtar data ifrån webstorage

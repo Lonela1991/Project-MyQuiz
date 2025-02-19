@@ -52,6 +52,7 @@ players.value=[]
     display: flex;
     flex-direction: column;
     max-width: 360px;
+    max-height: 670px;
     padding: 2.5rem 2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     background-color: #a4196f;

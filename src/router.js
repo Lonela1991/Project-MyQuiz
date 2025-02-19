@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 import HomeView from './views/HomeView.vue';
 import QuizView from './views/QuizView.vue';
 import ResultView from './views/ResultView.vue';
-import PlayerRegistration from './views/PlayerRegistration.vue';
+import PlayerRegistration from './views/PlayerRegistrationView.vue';
 
 
 const routes = [

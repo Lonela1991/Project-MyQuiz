@@ -17,7 +17,7 @@
   display: flex;
     flex-direction: column;
     max-width: 360px;
-    padding: 11rem 5rem;
+    padding: 6rem 5rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: #fff;
    background-color: #a4196f;
@@ -25,5 +25,9 @@
 
 #section-logo {
   margin: 1rem 0;
+}
+
+#section-start-button {
+  margin: 4rem 0;
 }
 </style>
